@@ -1,0 +1,31 @@
+﻿@model IEnumerable<ScarpeShop.Models.Prodotto>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<main>
+    <div class="row p-5 bg-white">
+        
+
+        @foreach (ScarpeShop.Models.Prodotto p in Model)
+
+        {
+            if (p.Disp)
+            {
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card shadow">
+                        <img src="~/Content/sample/@p.CoverImg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h4 class="card-title">@p.Brand</h4>
+                            <h5 class="card-title">@p.Nome</h5>
+                            <p class="card-text">Prezzo: @String.Format("{0:0.00 €}", p.Prezzo)</p>
+                            <a href="~/Home/ProductPage/@p.IdProdotto" class="btn btn-primary rounded-pill w-100">Mostra</a>
+
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+
+</main>
